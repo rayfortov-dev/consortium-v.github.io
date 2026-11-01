@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="TON_CODE_SECRET_GOOGLE_ICI" />
     <title>CONSORTIUM V // OPERATIONAL INTERFACE</title>
     <style>
         :root {
@@ -190,8 +189,8 @@
     </div>
 
     <div class="navigation-tabs">
-        <button class="tab-btn active" onclick="switchTab('explication')">01. DOCUMENTATION DE CELLULE</button>
-        <button class="tab-btn" onclick="switchTab('logs')">02. DOSSIERS DE SURVEILLANCE CRITIQUE</button>
+        <button id="btn-explication" class="tab-btn active" onclick="switchTab('explication')">01. DOCUMENTATION DE CELLULE</button>
+        <button id="btn-logs" class="tab-btn" onclick="switchTab('logs')">02. DOSSIERS DE SURVEILLANCE CRITIQUE</button>
     </div>
 
     <!-- ONGLET 1 : EXPLICATION -->
@@ -217,15 +216,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- LOGS REALISTES EXISTANTS TRONQUÉS POUR L'EXEMPLE -->
                     <tr class="row-complete" onclick="toggleDetails('d101')"><td>#101</td><td>2021-2022</td><td>Node EU-West // Hébergement Local (Lyon)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
                     <tr class="details-row" id="d101"><td colspan="5"><code>[METADATA] ID: TX-991A // INJECTION: PASSIVE_ROUTING // VERIFICATION COMPLETÉE</code></td></tr>
                     
                     <tr class="row-complete" onclick="toggleDetails('d118')"><td>#118</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Rennes)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
                     <tr class="details-row" id="d118"><td colspan="5"><code>[METADATA] ID: TX-418B // SCRIPT PURGE COMPLETE // COMPTE RENDU ENREGISTRÉ</code></td></tr>
 
-                    <!-- ================= INTERVENTIONS MONDIALES MAJEURES (REAL OUTAGES) ================= -->
-                    
                     <tr class="row-global" onclick="toggleDetails('d_fb2021')"><td>#GLOBAL-04</td><td>04.10.2021</td><td>BACKBONE CENTRAL // FACEBOOK INC. (Global)</td><td>Séquenceur BGP-C5</td><td><span class="badge global">BLACKOUT</span></td></tr>
                     <tr class="details-row" id="d_fb2021"><td colspan="5"><code>[CRITICAL_INCIDENT] Coupure de la totalité des routes d'accès DNS mondiales (Facebook, Instagram, WhatsApp). Coupure interne des badges physiques des ingénieurs sur site pour retarder l'accès aux serveurs. Cause officielle communiquée : "Erreur de configuration interne".</code></td></tr>
 
@@ -233,3 +229,43 @@
                     <tr class="details-row" id="d_aws2025"><td colspan="5"><code>[CRITICAL_INCIDENT] Rupture de la chaîne de requêtes DynamoDB DNS. Paralysie immédiate de 17 millions de services connectés à l'échelle planétaire pendant plus de 15 heures. Dissimulation publique opérée sous la désignation d'un "incident technique interne".</code></td></tr>
 
                     <tr class="row-global" onclick="toggleDetails('d_cs2024')"><td>#GLOBAL-14</td><td>19.07.2024</td><td>ENDPOINT SECURITY // CORE WINDOWS SYSTEMS</td><td>Payload Falcon-X</td><td><span class="badge global">BLACKOUT</span></td></tr>
+                    <tr class="details-row" id="d_cs2024"><td colspan="5"><code>[CRITICAL_INCIDENT] Corruption forcée du fichier de configuration système (.sys). Écran bleu de la mort (BSOD) immédiat sur 8,5 millions de machines étatiques, clouant au sol les flottes aériennes, bloquant les hôpitaux et les infrastructures bancaires. Justification publique : "Fichier de mise à jour CrowdStrike défectueux".</code></td></tr>
+
+                    <tr class="row-active" onclick="toggleDetails('d190')"><td>#190</td><td>01.11.2026</td><td>Node EU-West // Target ID: #22GQ8VJPRL</td><td>UA-50 / Rayfort</td><td><span class="badge active">EN COURS</span></td></tr>
+                    <tr class="details-row" id="d190"><td colspan="5"><code>[SYSTEM_ALERT] INFILTRATION ACTIVE DE LA DIRECTION DU CLAN // LOGS COMPORTEMENTAUX COMPILÉS SANS ALERTE DISCORD EXTERNE // STATUT: RAYFORT SUR ZONE.</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="alert-box-secret">
+            [ALERTE SÉCURITÉ CLASSE 5] : ACCÈS LIMITÉ EN RAISON DE PROTOCOLES DE DECRYPTAGE EN COURS. LES SÉQUENCES LIÉES AUX INCIDENTS ÉTATIQUES GÉOPOLITIQUES DE HAUTE AMPLEUR SONT REPARTIES SUR DES REGISTRES SÉCURISÉS ET GARDÉES SOUS SECRET ABSOLU PAR LE CONSEIL DES CINQ. TOUTE TENTATIVE D'EXTRACTION DE FORCE ENTRAÎNERA L'EFFACEMENT DES DONNÉES SOURCE.
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.content-section').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        
+        document.getElementById(tabId).style.display = 'block';
+        
+        if(tabId === 'explication') {
+            document.getElementById('btn-explication').classList.add('active');
+        } else {
+            document.getElementById('btn-logs').classList.add('active');
+        }
+    }
+
+    function toggleDetails(rowId) {
+        var row = document.getElementById(rowId);
+        if (row.style.display === "table-row") {
+            row.style.display = "none";
+        } else {
+            row.style.display = "table-row";
+        }
+    }
+</script>
+
+</body>
+</html>
