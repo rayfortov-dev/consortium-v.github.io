@@ -21,28 +21,29 @@
         body {
             background-color: var(--bg);
             color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 90vh;
+            align-items: flex-start;
+            min-height: 95vh;
         }
 
         .mainframe {
-            width: 100%;
-            max-width: 950px;
+            width: 95%;
+            max-width: 1400px;
             background-color: var(--panel);
             border: 1px solid var(--border);
             border-radius: 8px;
             box-shadow: 0 25px 60px rgba(0,0,0,0.8);
             overflow: hidden;
+            margin-top: 10px;
         }
 
         .top-bar {
             background-color: var(--panel-header);
-            padding: 12px 20px;
+            padding: 15px 20px;
             border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
@@ -50,8 +51,7 @@
         }
 
         .sys-title {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 3px;
             color: var(--text-muted);
             font-weight: bold;
@@ -68,7 +68,7 @@
             border: none;
             border-right: 1px solid var(--border);
             color: var(--text-muted);
-            padding: 14px 24px;
+            padding: 16px 28px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 12px;
             font-weight: bold;
@@ -85,7 +85,7 @@
             background-color: var(--panel);
             color: var(--red);
             border-bottom: 2px solid var(--red);
-            padding-bottom: 12px;
+            padding-bottom: 14px;
         }
 
         .content-section {
@@ -97,41 +97,44 @@
             display: block;
         }
 
-        /* Design Onglet 1 : Manifeste Corporate */
         .manifesto-title {
             font-size: 18px;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 10px;
+            font-weight: bold;
         }
 
         .manifesto-text {
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.8;
             color: #9ca3af;
             text-align: justify;
         }
 
-        /* Design Onglet 2 : Table des Logs de Sécurité */
+        .log-table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
         .log-table {
             width: 100%;
             border-collapse: collapse;
-            font-family: 'Courier New', Courier, monospace;
             font-size: 12px;
         }
 
         .log-table th {
             background-color: #08090d;
             color: var(--text-muted);
-            padding: 10px 12px;
+            padding: 12px;
             text-align: left;
             font-size: 11px;
             border-bottom: 1px solid var(--border);
         }
 
         .log-table td {
-            padding: 12px;
+            padding: 10px 12px;
             border-bottom: 1px solid #131722;
         }
 
@@ -140,7 +143,7 @@
 
         .badge {
             background: rgba(0, 255, 102, 0.1);
-            padding: 3px 8px;
+            padding: 2px 6px;
             border-radius: 4px;
             font-size: 10px;
         }
@@ -156,13 +159,12 @@
 <div class="mainframe">
     <div class="top-bar">
         <div class="sys-title">CONSORTIUM V // SECURE ROOT NETWORK</div>
-        <div style="font-size: 11px; color: var(--green); font-family: monospace;">● CORE_CONNECTED</div>
+        <div style="font-size: 11px; color: var(--green);">● CORE_CONNECTED</div>
     </div>
 
-    <!-- SYSTEME D'ONGLETS -->
     <div class="navigation-tabs">
         <button class="tab-btn active" onclick="switchTab('explication')">01. DOCUMENTATION DE CELLULE</button>
-        <button class="tab-btn" onclick="switchTab('logs')">02. DOSSIERS DE SURVEILLANCE (#151)</button>
+        <button class="tab-btn" onclick="switchTab('logs')">02. DOSSIERS DE SURVEILLANCE CRITIQUE</button>
     </div>
 
     <!-- ONGLET 1 : EXPLICATION -->
@@ -174,59 +176,82 @@
         </div>
     </div>
 
-    <!-- ONGLET 2 : LOGS -->
+    <!-- ONGLET 2 : LOGS (50 LOGS COMPLETS) -->
     <div id="logs" class="content-section">
-        <table class="log-table">
-            <thead>
-                <tr>
-                    <th>SÉQUENCE</th>
-                    <th>ANCRAGE</th>
-                    <th>INFRASTRUCTURE TARGET</th>
-                    <th>DISPOSITIF</th>
-                    <th>STATUT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="row-complete">
-                    <td>#101</td>
-                    <td>2021-2022</td>
-                    <td>Node EU-West // Hébergement Local (Lyon)</td>
-                    <td>06 Sentinelles Passives</td>
-                    <td><span class="badge">COMPLÉTÉ</span></td>
-                </tr>
-                <tr class="row-complete">
-                    <td>#102</td>
-                    <td>2021-2022</td>
-                    <td>Node EU-West // Routage Régional (Toulouse)</td>
-                    <td>09 Sentinelles Passives</td>
-                    <td><span class="badge">COMPLÉTÉ</span></td>
-                </tr>
-                <tr class="row-complete">
-                    <td>#151</td>
-                    <td>2023-2024</td>
-                    <td>Node NA-East // Cloud Central AWS (Virginia)</td>
-                    <td>84 Unités Actives</td>
-                    <td><span class="badge">EXÉCUTÉ</span></td>
-                </tr>
-                <tr class="row-active">
-                    <td>#190</td>
-                    <td>01.11.2026</td>
-                    <td>Node EU-West // Target ID: #22GQ8VJPRL</td>
-                    <td>UA-50 / Rayfort</td>
-                    <td><span class="badge active">EN COURS</span></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="log-table-container">
+            <table class="log-table">
+                <thead>
+                    <tr>
+                        <th>SÉQUENCE</th>
+                        <th>ANCRAGE</th>
+                        <th>INFRASTRUCTURE TARGET</th>
+                        <th>DISPOSITIF</th>
+                        <th>STATUT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- GENERATION DES 50 PROCESSUS LOCAUX -->
+                    <tr class="row-complete"><td>#101</td><td>2021-2022</td><td>Node EU-West // Hébergement Local (Lyon)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#102</td><td>2021-2022</td><td>Node EU-West // Routage Régional (Toulouse)</td><td>09 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#103</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Nantes)</td><td>07 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#104</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Bordeaux)</td><td>08 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#105</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Lille)</td><td>07 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#106</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Marseille)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#107</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Strasbourg)</td><td>03 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#108</td><td>2021-2022</td><td>Node EU-West // Hébergement Local (Rennes)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#109</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Montpellier)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#110</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Nice)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#111</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Lyon)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#112</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Toulouse)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#113</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Nantes)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#114</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Bordeaux)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#115</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Lille)</td><td>03 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#116</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Marseille)</td><td>08 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#117</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Strasbourg)</td><td>08 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#118</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Rennes)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#119</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Montpellier)</td><td>04 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#120</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Nice)</td><td>07 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#121</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Lyon)</td><td>09 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#122</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Toulouse)</td><td>08 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#123</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Nantes)</td><td>09 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#124</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Bordeaux)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#125</td><td>2021-2022</td><td>Node EU-West // Hébergement Local (Lille)</td><td>03 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#126</td><td>2021-2022</td><td>Node EU-West // Hébergement Local (Marseille)</td><td>03 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#127</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Strasbourg)</td><td>04 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#128</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Rennes)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#129</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Montpellier)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#130</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Nice)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#131</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Lyon)</td><td>07 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#132</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Toulouse)</td><td>04 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#133</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Nantes)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#134</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Bordeaux)</td><td>04 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#135</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Lille)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#136</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Marseille)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#137</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Strasbourg)</td><td>08 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#138</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Rennes)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#139</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Montpellier)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#140</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Nice)</td><td>07 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#141</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Lyon)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#142</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Toulouse)</td><td>04 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#143</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Nantes)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#144</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Bordeaux)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#145</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Lille)</td><td>11 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#146</td><td>2021-2022</td><td>Node EU-West // Base SQL v3.1 (Marseille)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#147</td><td>2021-2022</td><td>Node EU-West // Serveur Synology (Strasbourg)</td><td>04 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#148</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Rennes)</td><td>05 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#149</td><td>2021-2022</td><td>Node EU-West // Passerelle VPN (Montpellier)</td><td>06 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#150</td><td>2021-2022</td><td>Node EU-West // Hébergement Mutualisé (Nice)</td><td>08 Sentinelles</td><td><span class="badge">COMPLÉTÉ</span></td></tr>
+                    <tr class="row-complete"><td>#151</td><td>2023-2024</td><td>Node NA-East // Cloud Central AWS (Virginia)</td><td>84 Actives</td><td><span class="badge">EXÉCUTÉ</span></td></tr>
+                                    </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
 <script>
     function switchTab(tabId) {
-        // Désactiver toutes les sections et tous les boutons
         document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-        
-        // Activer la section cible et le bouton correspondant
         document.getElementById(tabId).classList.add('active');
         event.currentTarget.classList.add('active');
     }
