@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- METS TA BALISE DE VALIDATION GOOGLE JUSTE EN DESSOUS -->
+    <meta name="google-site-verification" content="TON_CODE_SECRET_GOOGLE_ICI" />
+    <title>CONSORTIUM V // CENTRAL TERMINAL</title>
+    <style>
+        :root {
+            --bg-color: #060608;
+            --terminal-bg: #0c0d12;
+            --primary: #00ff66;
+            --accent: #ff3333;
+            --warning: #ffb300;
+            --text: #d1d5db;
+            --border: #1f242e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+        }
+
+        .terminal-container {
+            width: 100%;
+            max-width: 950px;
+            background-color: var(--terminal-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 2px rgba(255, 51, 51, 0.1);
+            overflow: hidden;
+        }
+
+        .window-header {
+            background-color: #141722;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .window-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #2a2f42;
+        }
+        .dot.active { background-color: var(--accent); }
+
+        .window-title {
+            font-size: 11px;
+            color: #6b7280;
+            letter-spacing: 2px;
+        }
+
+        .terminal-body {
+            padding: 25px;
+        }
+
+        .sys-banner {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            padding: 15px;
+            background-color: #090a0f;
+        }
+
+        .status-item {
+            font-size: 12px;
+        }
+        .status-item span {
+            color: var(--primary);
+        }
+
+        .manifesto {
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 30px;
+            color: #9ca3af;
+            border-left: 3px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        .log-section-title {
+            color: var(--warning);
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .log-table th, .log-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #11141d;
+        }
+
+        .log-table th {
+            color: #4b5563;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .log-row {
+            color: var(--primary);
+        }
+        .log-row.alert {
+            color: var(--warning);
+        }
+
+        .badge {
+            background-color: rgba(0, 255, 102, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+        .badge.alert {
+            background-color: rgba(255, 179, 0, 0.1);
+        }
+
+        .footer-notice {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border);
+            color: #4b5563;
+            font-size: 11px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="terminal-container">
+    <div class="window-header">
+        <div class="window-buttons">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="window-title">SECURE SHELL // CONSORTIUM V</div>
+        <div style="width: 42px;"></div>
+    </div>
+
+    <div class="terminal-body">
+        <div class="sys-banner">
+            [SYS_LINK] ACCESS_POINT: NODE_GLOBAL // PROTOCOLE DE ROUTAGE COUVERT
+        </div>
+
+        <div class="status-grid">
+            <div class="status-item">RÉSEAU CENTRAL : <span>OPÉRATIONNEL</span></div>
+            <div class="status-item">CELLULES ACTIVES : <span>147 UNITS</span></div>
+            <div class="status-item">INDEX GOOGLE : <span>INITIALISÉ</span></div>
+            <div class="status-item">FLUX ENTRANT : <span>CHIFFRÉ CLASSE 5</span></div>
+        </div>
+
+        <div class="manifesto">
+            <strong>CONTESTATIO // EXPLICATION DE LA STRUCTURE COMPÉTITIVE DÉCENTRALISÉE</strong><br><br>
+            À l'origine, le Consortium V opère de façon totalement indépendante, neutre et autonome, à l'abri de toute influence publique. La structure directrice est entièrement verrouillée par le Conseil des Cinq (V-01 à V-05), qui orchestre la surveillance passive et la neutralisation des protocoles de corruption au sein des plus grandes structures virtuelles mondiales.<br><br>
+            Pour garantir l'intégrité absolue de nos dossiers et l'anonymat complet de nos nœuds de diffusion face à la censure et aux suppressions administratives des plateformes publiques ou encyclopédiques ouvertes, cette infrastructure fermée répertorie de manière immuable nos interventions directes sur le terrain.
+        </div>
+
+        <div class="log-section-title">// SÉQUENCES DE RESTRUCTURATION ENREGISTRÉES</div>
+        
+        <table class="log-table">
+            <thead>
+                <tr>
+                    <th>Séquence</th>
+                    <th>Ancrage</th>
+                    <th>Infrastructure Target</th>
+                    <th>Dispositif</th>
+                    <th>Statut</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="log-row">
+                    <td>#101</td>
+                    <td>2021-2022</td>
+                    <td>Node EU-West // Hébergement Local (Lyon)</td>
+                    <td>06 Sentinelles</td>
+                    <td><span class="badge">COMPLÉTÉ</span></td>
+                </tr>
+                <tr class="log-row">
+                    <td>#102</td>
+                    <td>2021-2022</td>
+                    <td>Node EU-West // Routage Régional (Toulouse)</td>
+                    <td>09 Sentinelles</td>
+                    <td><span class="badge">COMPLÉTÉ</span></td>
+                </tr>
+                <tr class="log-row">
+                    <td>#151</td>
+                    <td>2023-2024</td>
+                    <td>Node NA-East // Cloud Central AWS (Virginia)</td>
+                    <td>84 Actives</td>
+                    <td><span class="badge">EXÉCUTÉ</span></td>
+                </tr>
+                <tr class="log-row alert">
+                    <td>#190</td>
+                    <td>01.11.2026</td>
+                    <td>Node EU-West // Target ID: #22GQ8VJPRL</td>
+                    <td>UA-50 Active</td>
+                    <td><span class="badge alert">EN COURS</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer-notice">
+            [FLUX RESTREINT] -- LES SÉQUENCES ULTÉRIEURES SONT DÉCENTRALISÉES SUR DES MILLIERS DE SECTEURS HERMÉTIQUES.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
